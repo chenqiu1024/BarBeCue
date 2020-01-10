@@ -390,8 +390,8 @@ Mat rasterImageWithDirectionOneLine(Mat& srcImg, float lineNormalTheta, float ra
         BresenhamLinePick(dstPtr, srcImg, pt0, pt1);
     else
         BresenhamLinePick(dstPtr, srcImg, pt1, pt0);
-    Mat expandedImg(3, diagonalLength, srcImg.type());
-    copyMakeBorder(oneLineImg, expandedImg, 1, 1, 0, 0, BORDER_REPLICATE);
+    Mat expandedImg(31, diagonalLength, srcImg.type());
+    copyMakeBorder(oneLineImg, expandedImg, 15, 15, 0, 0, BORDER_REPLICATE);
     return expandedImg;
 }
 
@@ -508,8 +508,8 @@ void rasterImageWithDirectionLineByLine(Mat& srcImg, float lineNormalTheta, void
         pt1.y = cvRound(py - diagonalLength * (cosTheta));
         uchar* dstPtr = oneLineImg.data;
         BresenhamLinePick(dstPtr, srcImg, pt0, pt1);
-        Mat expandedImg(101, diagonalLength, srcImg.type());
-        copyMakeBorder(oneLineImg, expandedImg, 50, 50, 0, 0, BORDER_REPLICATE);
+        Mat expandedImg(31, diagonalLength, srcImg.type());
+        copyMakeBorder(oneLineImg, expandedImg, 15, 15, 0, 0, BORDER_REPLICATE);
         
         px += dpx;
         py += dpy;
